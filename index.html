@@ -3,22 +3,23 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device-width, initial-scale=1">
-    <script>"https://code.jquery.com/jquery-3.6.1.js"</script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="jquerystyles.css">
     <title>jQuery sovellus</title>
     <meta charset="utf-8"/>
 </head>
-<body onload = "loadAreas()"> <!-- Kun sivu latautuu se kutsuu loadAreas funktiota koodit.js tiedostosta
-    joka hakee teatterit select listaan finnkinon XML tiedostosta -->
+<body> 
     <div id="wrapper">
         <div class ="header">
             <h1><strong>Leffasovellus</strong></h1>
         </div>
-        <select id="theatreList" onchange ="loadSchedule()"></select>
+        <select id="theatreList"></select>
+        <input id="userInput" type="text" placeholder="Hae elokuvia...">
             <br/>
             <br/>
             <br/>
+            <table id="movieinfo"></table>>
             <table id="list"></table>
             <div id="moviedata"></div> <!-- div minne finnkinon xml data sijoittuu -->
             <br>
