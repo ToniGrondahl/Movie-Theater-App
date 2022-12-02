@@ -36,6 +36,12 @@ body { /* body elementin tyylittelyä ja lisätään taustalle kuva */
     padding: 3px;    
     border-radius: 3px;
 }
+
+#List {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #2d2d2d;
+}
 	
 th, td {    /* taulukko rivien tyylittelyä */
     padding: 20px;
@@ -44,7 +50,7 @@ th, td {    /* taulukko rivien tyylittelyä */
     border-bottom: 1px solid #2d2d2d;
     }		
     
-.movietitle {	/* tyylitellään teksti erilaiseksi siinä sarakkeessa missä lukee elokuvan nimi */
+.Title {	/* tyylitellään teksti erilaiseksi siinä sarakkeessa missä lukee elokuvan nimi */
     font-weight: bold;
     padding-left: 1em;
     font-size: 1.1em;

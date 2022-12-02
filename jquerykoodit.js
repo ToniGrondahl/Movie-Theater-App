@@ -1,8 +1,9 @@
-$(document).ready(function(){         //jquery animation that works after the page has loaded all the content
+ //jquery animaatio joka toimii kun sivu on latautunut
+$(document).ready(function(){        
   $(".header").mouseenter(function(){        
-    $(".header").animate({letterSpacing: "+=10px"});
+    $(".header").animate({letterSpacing: "+=10px"});     //animoidaan "Leffasovellus" teksti muuttamalla kirjain väliä suuremmaksi kun hiiri menee teksti elementin päälle.
   });
-$(".header").mouseleave(function(){         //animating the welcome text header by changing the letter spacing when the mouse enters the element.
+$(".header").mouseleave(function(){     //teksi palautuu normaaliksi kun hiiri viedään pois elementin päältä
   $(".header").animate({letterSpacing: "-=10px"});
   });
 });
@@ -55,6 +56,10 @@ $("#theatreList").change(function(){
           var time = Schedule.slice(11, 16);
 
          //lopullinen tulostus tauluun
+         $("#list").hide();
+         $("#list").append('<tr><td>' + "Elokuva" + '</td><th>' + "Genre" + '</th><th>' + "Kesto" + '</th><th>' + "Alkamisaika" + '</th><th>' + "Sali" + '</th></td></tr>');
+         $("#list").fadeIn(400);
+
          $("#list").hide();
           $("#list").append('<tr><td>'+ imageURL + '</td><th>' + movie + '<th>' + Genre + '</th><th>' + Duration + " min <th><th>" + time + '<th> <th>' + place + '</td>');
           $("#list").fadeIn(400);
