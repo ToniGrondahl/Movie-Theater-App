@@ -58,6 +58,9 @@ $("#theatreList").change(function(){
          $("#list").hide();
           $("#list").append('<tr><td>'+ imageURL + '</td><th>' + movie + '<th>' + Genre + '</th><th>' + Duration + " min <th><th>" + time + '<th> <th>' + place + '</td>');
           $("#list").fadeIn(400);
+          $("#topbutton").hide();
+          $("#topbutton").append(); 
+          $("#topbutton").fadeIn(400);
         });
     }
   });
