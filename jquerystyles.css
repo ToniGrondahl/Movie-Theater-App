@@ -44,12 +44,6 @@ th, td {    /* taulukko rivien tyylittelyä */
     border-bottom: 1px solid #2d2d2d;
     }		
     
-.Title {	/* tyylitellään teksti erilaiseksi siinä sarakkeessa missä lukee elokuvan nimi */
-    font-weight: bold;
-    padding-left: 1em;
-    font-size: 1.2em;
-    }
-
 a {     /* tyylitellän takaisin ylös nappula */
     color: gold; 
     text-align: center;
