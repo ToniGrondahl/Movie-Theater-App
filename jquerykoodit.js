@@ -10,7 +10,7 @@ $(".header").mouseleave(function(){
   });
 });
 
-  //.ready tarkistaa, että DOM -sisältö on kokonaan valmis käsiteltäväksi
+  //.ready tarkistaa, että DOM-sisältö on valmis käsiteltäväksi
 $(document).ready(function() {
   //kutsutaan .ajaxilla XML sivuston dataa
   $.ajax({
@@ -18,12 +18,12 @@ $(document).ready(function() {
     type: "GET",
     dataType: "html",
     success: function(xml) {
-      //jos data on kunnossa (success), lähtee alla oleva fuktio toimintaan
+      //jos data on kunnossa (success), niin alla oleva funktio lähtee toimintaan
       //etsitään tag TheatreArea xml tiedostosta .each loopilla
         $(xml).find('TheatreArea').each(function() {
           //haetaan jokainen tag theatrearea ja niiden sisältä 'name' ja 'id'
-          var theatreText = $(this).find('Name').text();
-          var theatreID = $(this).find('ID').text();
+          let theatreText = $(this).find('Name').text();
+          let theatreID = $(this).find('ID').text();
           //tulostetaan select tauluun sisällöt
           $("#theatreList").append('<option value = ' + theatreID + '>' + theatreText + '</option>');
         });
@@ -31,11 +31,10 @@ $(document).ready(function() {
   });
 });
 
-/* Kun käyttäjä valitsee teatterin niin se kutsuu tätä funktiota
-   joka hakee finnkinon sivuilta kyseisen teatterin elokuva aikataulun */
+   //funktio joka hakee finnkinon sivulta sen teatterin elokuva aikataulut minkä käyttäjä valitsee
 $("#theatreList").change(function(){
   $("#list").text("");
-  var id = $("#theatreList").val();
+  let id = $("#theatreList").val();
   $("#userInput").css("display", "block"); 
   $("#list").hide();
   $("#list").append('<tr><th>' + '</th><th>' + "Elokuva" + '</th><th>' + '</th><th>' + "Genre" + '</th><th>' + "Kesto" + '</th><th>' + "Alkamisaika" + '</th><th>' + "Sali" + '</th</tr>');
@@ -51,15 +50,15 @@ $("#theatreList").change(function(){
         $(xml).find('Show').each(function() {
 
           //tallennetaan eri tiedot muuttujiin
-          var imageURL = '<img class="images" src="' + $(this).find('EventSmallImagePortrait').text() + '">';
-          var movie = $(this).find('Title').text();
-          var Genre = $(this).find('Genres').text();
-          var Schedule = $(this).find('dttmShowStart').text();
-          var Duration = $(this).find('LengthInMinutes').text();
-          var place = $(this).find("TheatreAuditorium").text();  
+          let imageURL = '<img class="images" src="' + $(this).find('EventSmallImagePortrait').text() + '">';
+          let movie = $(this).find('Title').text();
+          let Genre = $(this).find('Genres').text();
+          let Schedule = $(this).find('dttmShowStart').text();
+          let Duration = $(this).find('LengthInMinutes').text();
+          let place = $(this).find("TheatreAuditorium").text();  
 
           //parsitaan xml:stä vain tarvittavat aikataulutiedot
-          var time = Schedule.slice(11, 16);
+          let time = Schedule.slice(11, 16);
 
          //lopullinen tulostus tauluun
           $("#list").hide();
@@ -76,13 +75,13 @@ $("#theatreList").change(function(){
 //Erillisen hakukentän funktiot
 $("#userInput").keyup(function(){
   //Määritellään muuttujat 
- var input = $("#userInput").val();
- var filter = input.toUpperCase();
- var table = $("#list");
+ let input = $("#userInput").val();
+ let filter = input.toUpperCase();
+ let table = $("#list");
 
  // Looppi listan kohteiden läpi ja piilotetaan kaikki ne kohteet jotka ei vastaa hakulauseketta
  $(table).find('tr').each(function() {
-   var tdText = $(this).text();
+   let tdText = $(this).text();
    if(tdText.toUpperCase().indexOf(filter) > -1 ) {
      $(this).fadeIn(1000);
    } else {
@@ -90,53 +89,3 @@ $("#userInput").keyup(function(){
    }
  });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
