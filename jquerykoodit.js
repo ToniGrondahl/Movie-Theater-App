@@ -1,9 +1,13 @@
  //jquery animaatio joka toimii kun sivu on latautunut
-$(document).ready(function(){        
-  $(".header").mouseenter(function(){        
-    $(".header").animate({letterSpacing: "+=10px"});     //animoidaan "Leffasovellus" teksti muuttamalla kirjain väliä suuremmaksi kun hiiri menee teksti elementin päälle.
+$(document).ready(function(){   
+  $(".header").mouseenter(function(){
+
+    //animoidaan "Leffasovellus" teksti muuttamalla kirjain väliä suuremmaksi kun hiiri menee teksti elementin päälle.
+    $(".header").animate({letterSpacing: "+=10px"});
   });
-$(".header").mouseleave(function(){     //teksi palautuu normaaliksi kun hiiri viedään pois elementin päältä
+$(".header").mouseleave(function(){    
+  
+  //teksi palautuu normaaliksi kun hiiri viedään pois elementin päältä
   $(".header").animate({letterSpacing: "-=10px"});
   });
 });
@@ -34,7 +38,10 @@ $(document).ready(function() {
 $("#theatreList").change(function(){
   $("#list").text("");
   var id = $("#theatreList").val();
-  $("#userInput").css("display", "block");
+  $("#userInput").css("display", "block"); 
+  $("#list").hide();
+  $("#list").append('<tr><th>' + '</th><th>' + "Elokuva" + '</th><th>' + '</th><th>' + "Genre" + '</th><th>' + "Kesto" + '</th><th>' + "Alkamisaika" + '</th><th>' + "Sali" + '</th</tr>');
+  $("#list").fadeIn(500);
 
   //Elokuvan tietojen ajax kutsu
   $.ajax({
@@ -44,6 +51,7 @@ $("#theatreList").change(function(){
     success: function(xml) {
       //haetaan xml tiedot looppia hyödyntäen
         $(xml).find('Show').each(function() {
+
           //tallennetaan eri tiedot muuttujiin
           var imageURL = '<img class="images" src="' + $(this).find('EventSmallImagePortrait').text() + '">';
           var movie = $(this).find('Title').text();
@@ -56,16 +64,12 @@ $("#theatreList").change(function(){
           var time = Schedule.slice(11, 16);
 
          //lopullinen tulostus tauluun
-         $("#list").hide();
-         $("#list").append('<tr><td>' + "Elokuva" + '</td><th>' + "Genre" + '</th><th>' + "Kesto" + '</th><th>' + "Alkamisaika" + '</th><th>' + "Sali" + '</th></td></tr>');
-         $("#list").fadeIn(400);
-
-         $("#list").hide();
-          $("#list").append('<tr><td>'+ imageURL + '</td><th>' + movie + '<th>' + Genre + '</th><th>' + Duration + " min <th><th>" + time + '<th> <th>' + place + '</td>');
+          $("#list").hide();
+          $("#list").append('<tr><td>'+ imageURL + '</td><th>' + movie + '<th><td>' + Genre + '</td><td>' + Duration + " min </td><td>" + time + '</td><td>' + place + '</td></tr>');
           $("#list").fadeIn(400);
           $("#topbutton").hide();
           $("#topbutton").append(); 
-          $("#topbutton").fadeIn(400);
+          $("#topbutton").fadeIn(500);
         });
     }
   });
@@ -73,11 +77,12 @@ $("#theatreList").change(function(){
 
 //Erillisen hakukentän funktiot
 $("#userInput").keyup(function(){
-  //Declare variables
+  //Määritellään muuttujat 
  var input = $("#userInput").val();
  var filter = input.toUpperCase();
  var table = $("#list");
- // Loop through all list items, and hide those who don't match the search query
+
+ // Looppi listan kohteiden läpi ja piilotetaan kaikki ne kohteet jotka ei vastaa hakulauseketta
  $(table).find('tr').each(function() {
    var tdText = $(this).text();
    if(tdText.toUpperCase().indexOf(filter) > -1 ) {
