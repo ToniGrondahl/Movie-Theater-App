@@ -1,12 +1,10 @@
  //jquery animaatio joka toimii kun sivu on latautunut
 $(document).ready(function(){   
   $(".header").mouseenter(function(){
-
     //animoidaan "Leffasovellus" teksti muuttamalla kirjain väliä suuremmaksi kun hiiri menee teksti elementin päälle.
     $(".header").animate({letterSpacing: "+=10px"});
   });
 $(".header").mouseleave(function(){    
-  
   //teksi palautuu normaaliksi kun hiiri viedään pois elementin päältä
   $(".header").animate({letterSpacing: "-=10px"});
   });
