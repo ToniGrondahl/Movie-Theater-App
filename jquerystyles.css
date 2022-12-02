@@ -37,7 +37,7 @@ body { /* body elementin tyylittelyä ja lisätään taustalle kuva */
     border-radius: 3px;
 }
 	
-tr, th, td {    /* taulukko rivien tyylittelyä */
+th, td {    /* taulukko rivien tyylittelyä */
     padding: 20px;
     text-align:left;
     color: gold;
@@ -57,7 +57,7 @@ a {     /* tyylitellän takaisin ylös nappula */
     padding-top: 20px;
 }
 
-a:hover { 
+a:hover {
     color: yellow;
 }
 
