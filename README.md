@@ -9,7 +9,7 @@ A web application using Finnkino's XML API, where the user can select the movie 
 - Finnkino XML API
 
 ## Live Demo
-[Guestbook App](https://lambent-twilight-05ecd6.netlify.app)
+[Movie Theater App](https://lambent-twilight-05ecd6.netlify.app/)
 
 ## Installation
 1. Clone the repository:
